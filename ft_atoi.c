@@ -6,11 +6,17 @@
 /*   By: ankadava <ankadava@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 12:39:25 by ankadava          #+#    #+#             */
-/*   Updated: 2026/10/15 14:09:23 by ankadava         ###   ########.fr       */
+/*   Updated: 2026/10/17 19:23:17 by ankadava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+int	ft_isdigit(int c)
+{
+	if (!(c >= '0' && c <= '9'))
+		return (0);
+	return (1);
+}
 
 int	ft_atoi(const char *nptr)
 
@@ -28,7 +34,7 @@ int	ft_atoi(const char *nptr)
 			sign = -sign;
 		nptr++;
 	}
-	while ('0' <= *nptr && *nptr <= '9')
+	while (ft_isdigit(*nptr))
 	{
 		i = i * 10 + ((char)*nptr - '0');
 		nptr++;

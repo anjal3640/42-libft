@@ -34,5 +34,5 @@ int	ft_isalpha(int c)
 // 		}
 // 	}
 // 	if (flag==0)
-// 	printf("all cases correct\n");
+// 		printf("all cases correct\n");
 // }
