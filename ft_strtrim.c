@@ -6,13 +6,12 @@
 /*   By: ankadava <ankadava@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 12:22:35 by ankadava          #+#    #+#             */
-/*   Updated: 2026/10/22 15:34:59 by ankadava         ###   ########.fr       */
+/*   Updated: 2026/10/29 13:39:53 by ankadava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 static size_t	str_startindex(char const *s1, char const *set)
@@ -65,12 +64,26 @@ static size_t	str_endindex(char const *s1, char const *set)
 	return (0);
 }
 
+static char	*strcpy_start_end(size_t slen, size_t startindex, char *str,
+		char const *s1)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < slen)
+	{
+		str[i] = s1[startindex + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	slen;
 	size_t	startindex;
 	size_t	endindex;
-	size_t	i;
 	char	*str;
 
 	startindex = str_startindex(s1, set);
@@ -80,26 +93,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 	else
 		slen = endindex - startindex;
 	str = malloc(slen + 1);
-    if(str==NULL)
-        return NULL;
-	i = 0;
+	if (str == NULL)
+		return (NULL);
 	if (endindex > 0)
-	{
-		while (i < slen)
-		{
-			str[i] = s1[startindex + i];
-			i++;
-		}
-	}
-	str[i] = '\0';
+		str = strcpy_start_end(slen, startindex, str, s1);
+	else
+		str[0] = '\0';
 	return (str);
 }
 
-int	main(void)
-{
-	char *str = ft_strtrim("   hello ", "*-");
-	printf("str=%s\n", str);
+// int	main(void)
+// {
+// 	char *str = ft_strtrim("*-*hello-*-*-*s", "*-");
+// 	printf("str=%s\n", str);
 
-	// int i=str_endindex("*-*hello-*-*-*","*-");
-	// printf("end index=%d",i);
-}
+// 	// int i=str_endindex("*-*hello-*-*-*","*-");
+// 	// printf("end index=%d",i);
+// }
