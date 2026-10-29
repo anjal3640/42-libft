@@ -6,7 +6,7 @@
 #    By: ankadava <ankadava@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/17 17:50:48 by ankadava          #+#    #+#              #
-#    Updated: 2026/10/29 19:21:19 by ankadava         ###   ########.fr        #
+#    Updated: 2026/10/29 19:39:08 by ankadava         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ SRC=ft_isalpha.c\
 	ft_lstadd_back.c\
 	ft_lstdelone.c\
 	ft_lstclear.c\
-	ft_lstiter.c
+	ft_lstiter.c\
+	ft_lstmap.c
 	
 OBJ=$(SRC:.c=.o)
 
