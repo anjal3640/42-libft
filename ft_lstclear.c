@@ -6,7 +6,7 @@
 /*   By: ankadava <ankadava@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 18:57:56 by ankadava          #+#    #+#             */
-/*   Updated: 2026/10/29 19:12:28 by ankadava         ###   ########.fr       */
+/*   Updated: 2026/10/29 19:35:35 by ankadava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *ptr;
-	t_list *temp;
+	t_list	*ptr;
+	t_list	*temp;
+
 	if (!lst || !del)
 		return ;
 	ptr = *lst;
@@ -24,8 +25,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		temp = ptr->next;
 		del(ptr->content);
 		free(ptr);
-        ptr=temp;
+		ptr = temp;
 	}
-    *lst=NULL;
-	
+	*lst = NULL;
 }
